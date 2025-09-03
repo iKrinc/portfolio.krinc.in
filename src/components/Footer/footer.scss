@@ -1,0 +1,41 @@
+.footer {
+  padding: 3rem 2rem;
+  background-color: #1a1a1a;
+  color: white;
+  border-top: 1px solid #333;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer p {
+  font-size: 1.1rem;
+}
+
+.footer-social-links a {
+  color: white; /* Initial white color */
+  font-size: 2rem;
+  margin-left: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.footer-social-links a:hover {
+  transform: scale(1.1); /* Add a subtle hover effect */
+}
+
+.footer-social-links a.linkedin-icon:hover {
+  background: linear-gradient(to right, #FF00FF, #00FFFF); /* Magenta to Cyan */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.footer-social-links a.github-icon:hover {
+  background: linear-gradient(to right, #FFFF00, #FF0000); /* Yellow to Red */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

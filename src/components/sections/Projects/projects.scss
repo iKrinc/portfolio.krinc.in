@@ -1,0 +1,145 @@
+.projects-section {
+  padding: 8rem 2rem;
+  background-color: #1a1a1a;
+  color: white;
+}
+
+.projects-section h2 {
+  text-align: center;
+  font-size: 3.5rem;
+  font-weight: bold;
+  margin-bottom: 4rem;
+  background: linear-gradient(
+    to right,
+    #00bfff,
+    #8a2be2
+  ); /* Blue to Purple gradient for title */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(450px, 1fr)
+  ); /* Two cards per row */
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.project-card-container {
+  perspective: 1000px; /* For 3D effect */
+  height: 350px; /* Fixed height for the card */
+}
+
+.project-card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0s ease-in-out; /* Adjusted transition duration */
+  border-radius: 15px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  /* Removed backdrop-filter to prevent text blur */
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.project-card:hover {
+  transform: translateY(-15px) rotateY(180deg); /* Apply rotation on hover */
+  box-shadow: 0 12px 40px 0 rgba(0, 191, 255, 0.3);
+}
+
+.project-card-front,
+.project-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Hide the back side during flip */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  border-radius: 15px;
+  box-sizing: border-box;
+}
+
+.project-card-front {
+  /* No initial transform */
+}
+
+.project-card-back {
+  transform: rotateY(180deg); /* Initial rotation to hide it */
+}
+
+.project-info {
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.project-info h3 {
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.project-info p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+  color: white;
+}
+
+.technologies {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.7rem;
+  margin-top: 1rem;
+}
+
+.technologies span {
+  background-color: #8a2be2;
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.project-info a {
+  color: #00bfff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+  margin-top: 1rem;
+}
+
+.project-info a:hover {
+  color: white;
+}
+
+.view-detail-button {
+  display: inline-block;
+  background: linear-gradient(to right, #00bfff, #8a2be2);
+  color: white !important;
+  text-decoration: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 1.5rem;
+  transition: transform 0.5s ease, box-shadow 0.5s ease, background 0.5s ease; /* Adjusted transition duration */
+}
+
+.view-detail-button:hover {
+  box-shadow: 0 5px 15px rgba(0, 191, 255, 0.4);
+}

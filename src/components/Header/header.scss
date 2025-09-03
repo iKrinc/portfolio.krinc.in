@@ -1,0 +1,83 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  transition: background-color 0.3s ease, padding 0.3s ease;
+}
+
+.header.scrolled {
+  background-color: rgba(26, 26, 26, 0.9);
+  backdrop-filter: blur(10px);
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.header-logo h1 {
+  font-size: 2rem;
+  font-weight: 900;
+  text-decoration: none;
+  background: linear-gradient(
+    to right,
+    #00bfff,
+    #8a2be2
+  ); /* Blue to Purple gradient for logo */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.header-logo .home-icon {
+  font-size: 2rem; /* Size of the home icon */
+  color: white; /* Default color */
+  transition: color 0.3s ease;
+}
+
+.header-logo .home-icon:hover {
+  color: #00bfff; /* Accent color on hover */
+}
+
+.header-nav ul {
+  display: flex;
+  list-style: none;
+}
+
+.header-nav li {
+  margin-left: 3.5rem;
+}
+
+.header-nav a {
+  color: white; /* Reverted to white */
+  text-decoration: none;
+  font-size: 1.3rem;
+  transition: all 0.3s ease;
+  position: relative;
+  padding-bottom: 5px;
+}
+
+.header-nav a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(
+    to right,
+    #00bfff,
+    #8a2be2
+  ); /* Blue to Purple gradient for underline */
+  transition: width 0.3s ease;
+}
+
+.header-nav a:hover::after {
+  width: 100%;
+}
+
+.header-nav a:hover {
+  color: #00bfff; /* Reverted to accent blue */
+}

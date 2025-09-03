@@ -1,0 +1,72 @@
+.project-detail-page {
+  padding: 8rem 2rem;
+  background-color: #1a1a1a;
+  color: white;
+  min-height: 100vh;
+}
+
+.project-detail-content {
+  max-width: 900px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 3rem;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.project-detail-content h2 {
+  font-size: 3.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  background: linear-gradient(to right, #00bfff, #8A2BE2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+}
+
+.detail-section {
+  margin-bottom: 2rem;
+}
+
+.detail-section h3 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #00bfff;
+}
+
+.detail-section p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.detail-section ul {
+  list-style: disc;
+  margin-left: 1.5rem;
+}
+
+.detail-section ul li {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+
+.project-artifacts a {
+  display: inline-block;
+  background-color: #8A2BE2;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.project-artifacts a:hover {
+  background-color: #00bfff;
+}

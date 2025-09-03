@@ -1,0 +1,63 @@
+.skills-section {
+  padding: 8rem 2rem;
+  background-color: #2a2a2a;
+  color: white;
+}
+
+.skills-section h2 {
+  text-align: center;
+  font-size: 3.5rem; /* Increased font size */
+  font-weight: bold;
+  margin-bottom: 4rem;
+  background: linear-gradient(
+    to bottom right,
+    #00bfff,
+    #8a2be2
+  ); /* Blue to Purple gradient for title */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.skill-category {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.skill-category h3 {
+  font-size: 2rem; /* Increased font size */
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: white; /* Changed to solid white */
+  text-transform: capitalize;
+}
+
+.skill-category ul {
+  list-style: none;
+  padding: 0;
+}
+
+.skill-category li {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 0.5rem;
+  position: relative;
+  padding-left: 1.5rem;
+  color: white; /* Reverted color */
+}
+
+.skill-category li::before {
+  content: "\25CF"; /* Bullet character */
+  color: #8a2be2; /* Changed to purple accent */
+  position: absolute;
+  left: 0;
+}

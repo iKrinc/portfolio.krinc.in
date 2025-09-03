@@ -1,0 +1,122 @@
+.hero-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+    135deg,
+    #1a1a1a 0%,
+    #333333 50%,
+    #8a2be2 100%
+  ); /* Reverted to dark gradient */
+  color: white;
+  overflow: hidden;
+  position: relative; /* For positioning SVGs */
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  max-width: 1200px;
+  position: relative; /* For z-index of content */
+  z-index: 1;
+}
+
+.hero-text {
+  flex: 1;
+  padding-right: 2rem;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+  background: linear-gradient(
+    to right,
+    #00bfff,
+    #8a2be2
+  ); /* Blue to Purple gradient for title */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  font-size: 2rem;
+  font-weight: 900;
+  margin-bottom: 2rem;
+  background: linear-gradient(to right, #00bfff, #8a2be2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-social-links a {
+  color: white; /* Initial white color */
+  font-size: 2.8rem;
+  margin-right: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.hero-social-links a:hover {
+  transform: scale(1.1); /* Add a subtle hover effect */
+}
+
+.hero-social-links a.linkedin-icon:hover {
+  background: linear-gradient(to right, #ff00ff, #00ffff); /* Magenta to Cyan */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-social-links a.github-icon:hover {
+  background: linear-gradient(to right, #ffff00, #ff0000); /* Yellow to Red */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.cta-button {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 1.2rem 2.5rem;
+  background: linear-gradient(
+    to right,
+    #00bfff,
+    #8a2be2
+  ); /* Blue to Purple gradient for button */
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 191, 255, 0.4); /* Adjusted shadow color */
+}
+
+.cta-button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 191, 255, 0.6); /* Adjusted shadow color */
+}
+
+.hero-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* For positioning SVGs relative to image */
+}
+
+.hero-image {
+  display: inline-block;
+  padding: 8px; /* border thickness */
+  border-radius: 50%;
+  background: linear-gradient(to right, #00bfff, #8a2be2); /* gradient border */
+}
+
+.hero-image img {
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 50% 16%;
+  display: block;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* shadow on the image */
+}

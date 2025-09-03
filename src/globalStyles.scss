@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
 /* Webkit (Chrome, Safari, Edge) */
 ::-webkit-scrollbar {
     width: 8px;
@@ -35,4 +37,17 @@
       background-color: rgba(51, 51, 51, 0.7); /* Adjust color on hover */
     }
   }
-  
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #1a1a1a;
+  color: white;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif;
+}
