@@ -5,7 +5,7 @@ function Homepage() {
   return (
     <div className="homepage-container">
       <div className="content">
-        <h1 className="glowing-text">Coming Soon...</h1>
+        <h1 className="glowing-text">Portfolio Here</h1>
       </div>
     </div>
   );
