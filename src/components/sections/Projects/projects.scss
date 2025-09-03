@@ -143,3 +143,76 @@
 .view-detail-button:hover {
   box-shadow: 0 5px 15px rgba(0, 191, 255, 0.4);
 }
+
+/* Tablet responsiveness */
+@media (max-width: 768px) {
+  .projects-section {
+    padding: 6rem 1rem;
+  }
+
+  .projects-section h2 {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr; /* Single column for tablets */
+    gap: 2rem;
+  }
+
+  .project-card-container {
+    height: 280px; /* Slightly reduce card height */
+  }
+
+  .project-info h3 {
+    font-size: 1.6rem; /* Adjusted font size */
+  }
+
+  .project-info p {
+    font-size: 0.9rem; /* Adjusted font size */
+  }
+
+  .technologies span {
+    font-size: 0.8rem; /* Adjusted font size */
+    padding: 0.2rem 0.5rem; /* Adjusted padding */
+  }
+
+  .view-detail-button {
+    padding: 0.6rem 1rem; /* Adjusted padding */
+    font-size: 0.8rem; /* Adjusted font size */
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 480px) {
+  .projects-section {
+    padding: 3rem 0.5rem; /* Adjusted padding */
+  }
+
+  .projects-section h2 {
+    font-size: 2rem; /* Adjusted font size */
+    margin-bottom: 1.5rem; /* Adjusted margin */
+  }
+
+  .project-card-container {
+    height: 250px; /* Further reduce card height */
+  }
+
+  .project-info h3 {
+    font-size: 1.3rem; /* Adjusted font size */
+  }
+
+  .project-info p {
+    font-size: 0.8rem; /* Adjusted font size */
+  }
+
+  .technologies span {
+    font-size: 0.7rem; /* Adjusted font size */
+    padding: 0.15rem 0.4rem; /* Adjusted padding */
+  }
+
+  .view-detail-button {
+    padding: 0.5rem 0.8rem; /* Adjusted padding */
+    font-size: 0.7rem; /* Adjusted font size */
+  }
+}

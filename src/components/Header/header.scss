@@ -22,6 +22,7 @@
   font-size: 2rem;
   font-weight: 900;
   text-decoration: none;
+  transition: opacity 0.3s ease;
   background: linear-gradient(
     to right,
     #00bfff,
@@ -80,4 +81,21 @@
 
 .header-nav a:hover {
   color: #00bfff; /* Reverted to accent blue */
+}
+
+/* Tablet and Mobile responsiveness: Hide navigation */
+@media (max-width: 768px) {
+  .header-nav {
+    display: none;
+  }
+
+  .header-logo h1 {
+    font-size: 1.5rem; /* Adjusted for tablet */
+  }
+}
+
+@media (max-width: 480px) {
+  .header-logo h1 {
+    font-size: 1.2rem; /* Adjusted for mobile */
+  }
 }

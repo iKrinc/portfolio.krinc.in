@@ -70,3 +70,69 @@
 .project-artifacts a:hover {
   background-color: #00bfff;
 }
+
+/* Tablet responsiveness */
+@media (max-width: 768px) {
+  .project-detail-page {
+    padding: 6rem 1rem;
+  }
+
+  .project-detail-content {
+    padding: 2rem;
+  }
+
+  .project-detail-content h2 {
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .detail-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .detail-section p,
+  .detail-section ul li {
+    font-size: 1rem;
+  }
+
+  .project-artifacts a {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+    margin-right: 0.8rem;
+    margin-bottom: 0.8rem;
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 480px) {
+  .project-detail-page {
+    padding: 4rem 0.5rem;
+  }
+
+  .project-detail-content {
+    padding: 1.5rem;
+  }
+
+  .project-detail-content h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .detail-section h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .detail-section p,
+  .detail-section ul li {
+    font-size: 0.9rem;
+  }
+
+  .project-artifacts a {
+    display: block; /* Stack links vertically */
+    width: fit-content;
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+}

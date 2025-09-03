@@ -11,7 +11,7 @@ import Footer from "./components/Footer";
 import Loader from "./components/Loader";
 import ProjectDetailPage from "./pages/ProjectDetailPage";
 import ScrollToTop from "./components/ScrollToTop";
-import './globalStyles.scss';
+import "./globalStyles.scss";
 
 function App() {
   const [showNameInHeader, setShowNameInHeader] = useState(false);
@@ -21,7 +21,7 @@ function App() {
     // Simulate asset loading
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 1500); // Adjust delay as needed
+    }, 1500);
 
     return () => clearTimeout(timer);
   }, []);
@@ -41,16 +41,22 @@ function App() {
             <ScrollToTop />
             <Header showNameInHeader={showNameInHeader} />
             <Routes>
-              <Route path="/" element={
-                <>
-                  <Hero setShowNameInHeader={setShowNameInHeader} />
-                  <About />
-                  <Projects />
-                  <Skills />
-                  <Contact />
-                </>
-              } />
-              <Route path="/project/:projectId" element={<ProjectDetailPage />} />
+              <Route
+                path="/"
+                element={
+                  <>
+                    <Hero setShowNameInHeader={setShowNameInHeader} />
+                    <About />
+                    <Projects />
+                    <Skills />
+                    <Contact />
+                  </>
+                }
+              />
+              <Route
+                path="/project/:projectId"
+                element={<ProjectDetailPage />}
+              />
             </Routes>
             <Footer />
           </motion.div>

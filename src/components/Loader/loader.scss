@@ -16,3 +16,19 @@
   height: 450px;
   object-fit: contain;
 }
+
+/* Tablet responsiveness */
+@media (max-width: 768px) {
+  .loader-gif {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 480px) {
+  .loader-gif {
+    width: 200px;
+    height: 200px;
+  }
+}

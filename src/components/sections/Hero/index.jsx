@@ -12,7 +12,7 @@ const Hero = ({ setShowNameInHeader }) => {
       ([entry]) => {
         setShowNameInHeader(!entry.isIntersecting);
       },
-      { threshold: 0.5 }
+      { threshold: 0.7 }
     );
 
     if (heroRef.current) {

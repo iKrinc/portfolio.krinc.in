@@ -44,3 +44,47 @@
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0, 191, 255, 0.6);
 }
+
+/* Tablet responsiveness */
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 6rem 1rem;
+  }
+
+  .contact-content h2 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-content p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+
+  .contact-button {
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 480px) {
+  .contact-section {
+    padding: 4rem 0.5rem;
+  }
+
+  .contact-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .contact-content p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-button {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
+}
