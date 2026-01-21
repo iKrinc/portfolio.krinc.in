@@ -35,17 +35,13 @@
   --radius-lg: 12px;
   --radius-xl: 16px;
 
-  /* Fonts */
-  --font-body: var(--font-inter);
-  --font-heading: var(--font-orbitron);
-  --font-mono: var(--font-rajdhani);
+  /* Fonts with fallbacks */
+  --font-body: var(--font-inter), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  --font-heading: var(--font-orbitron), 'Orbitron', 'Courier New', monospace;
+  --font-mono: var(--font-rajdhani), 'Rajdhani', 'Courier New', monospace;
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
-
   body {
     @apply bg-background-primary text-text-primary;
     font-family: var(--font-body);
@@ -135,14 +131,14 @@
 
   /* Button styles */
   .btn-primary {
-    @apply px-6 py-3 bg-primary text-bg-primary font-semibold rounded-md;
+    @apply px-6 py-3 bg-primary text-background-primary font-semibold rounded-md;
     @apply hover:bg-opacity-80 transition-all duration-300;
     @apply hover:shadow-[0_0_20px_rgba(0,217,255,0.5)];
   }
 
   .btn-secondary {
     @apply px-6 py-3 border-2 border-primary text-primary font-semibold rounded-md;
-    @apply hover:bg-primary hover:text-bg-primary transition-all duration-300;
+    @apply hover:bg-primary hover:text-background-primary transition-all duration-300;
   }
 
   /* Section container */

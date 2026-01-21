@@ -1,29 +1,11 @@
-/**
- * ═══════════════════════════════════════════════════════════════
- * ANIMATION VARIANTS LIBRARY
- * ═══════════════════════════════════════════════════════════════
- *
- * Reusable Framer Motion animation variants for consistent
- * motion design across the portfolio.
- *
- * Each section has unique variants to create distinct personalities.
- */
-
 import { Variants } from 'framer-motion'
-
-// ═══════════════════════════════════════════════════════════════
-// COMMON VARIANTS
-// ═══════════════════════════════════════════════════════════════
 
 export const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 60 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: {
-      duration: 0.6,
-      ease: 'easeOut',
-    },
+    transition: { duration: 0.6, ease: 'easeOut' },
   },
 }
 
@@ -31,27 +13,18 @@ export const fadeIn: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: {
-      duration: 0.6,
-    },
+    transition: { duration: 0.6 },
   },
 }
 
 export const scaleIn: Variants = {
-  hidden: { opacity: 0, scale: 0.8 },
+  hidden: { scale: 0, opacity: 0 },
   visible: {
-    opacity: 1,
     scale: 1,
-    transition: {
-      duration: 0.5,
-      ease: 'easeOut',
-    },
+    opacity: 1,
+    transition: { type: 'spring', stiffness: 100, damping: 15 },
   },
 }
-
-// ═══════════════════════════════════════════════════════════════
-// HERO / BOOT SEQUENCE
-// ═══════════════════════════════════════════════════════════════
 
 export const terminalLine: Variants = {
   hidden: { opacity: 0, x: -20 },
@@ -70,39 +43,27 @@ export const glitchText: Variants = {
   visible: {
     opacity: 1,
     transition: {
-      duration: 0.1,
-      repeat: 3,
-      repeatType: 'reverse',
+      duration: 0.5,
     },
   },
 }
 
 export const assemblePanel: Variants = {
-  hidden: {
-    opacity: 0,
-    rotateX: -90,
-    transformPerspective: 1000,
-  },
+  hidden: { opacity: 0, scale: 0.8, y: 20 },
   visible: {
     opacity: 1,
-    rotateX: 0,
+    scale: 1,
+    y: 0,
     transition: {
-      duration: 0.8,
-      ease: 'easeOut',
+      type: 'spring',
+      stiffness: 100,
+      damping: 15,
     },
   },
 }
 
-// ═══════════════════════════════════════════════════════════════
-// PLAYER STATS / HUD
-// ═══════════════════════════════════════════════════════════════
-
 export const hudPanel: Variants = {
-  hidden: {
-    opacity: 0,
-    x: -100,
-    rotateY: -45,
-  },
+  hidden: { opacity: 0, x: -50, rotateY: -15 },
   visible: (i: number) => ({
     opacity: 1,
     x: 0,
@@ -116,12 +77,13 @@ export const hudPanel: Variants = {
 }
 
 export const statBar: Variants = {
-  hidden: { width: 0 },
-  visible: (value: number) => ({
-    width: `${value}%`,
+  hidden: { width: 0, opacity: 0 },
+  visible: (i: number) => ({
+    width: '100%',
+    opacity: 1,
     transition: {
+      delay: 0.3 + i * 0.1,
       duration: 1,
-      delay: 0.3,
       ease: 'easeOut',
     },
   }),
@@ -133,66 +95,62 @@ export const countUp: Variants = {
     opacity: 1,
     scale: 1,
     transition: {
-      duration: 0.5,
-      ease: 'backOut',
+      type: 'spring',
+      stiffness: 100,
+      damping: 10,
     },
   },
 }
 
-// ═══════════════════════════════════════════════════════════════
-// SKILL TREE
-// ═══════════════════════════════════════════════════════════════
-
 export const skillNode: Variants = {
-  hidden: {
-    opacity: 0,
-    scale: 0,
-  },
+  hidden: { scale: 0, opacity: 0 },
   visible: (i: number) => ({
-    opacity: 1,
     scale: 1,
+    opacity: 1,
     transition: {
       delay: i * 0.05,
-      duration: 0.4,
       type: 'spring',
       stiffness: 200,
-      damping: 15,
+      damping: 20,
     },
   }),
   hover: {
     scale: 1.1,
-    transition: {
-      duration: 0.2,
-    },
+    transition: { duration: 0.2 },
   },
 }
 
 export const skillConnection: Variants = {
   hidden: { pathLength: 0, opacity: 0 },
-  visible: {
+  visible: (i: number) => ({
     pathLength: 1,
-    opacity: 0.5,
+    opacity: 1,
     transition: {
-      duration: 1,
+      delay: i * 0.1,
+      duration: 0.8,
       ease: 'easeInOut',
     },
-  },
+  }),
 }
 
-// ═══════════════════════════════════════════════════════════════
-// QUEST LOG / TIMELINE
-// ═══════════════════════════════════════════════════════════════
+export const skillCategory: Variants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.1,
+      duration: 0.5,
+    },
+  }),
+}
 
 export const questCard: Variants = {
-  hidden: {
-    opacity: 0,
-    x: -100,
-    rotateY: 45,
-  },
+  hidden: { opacity: 0, x: -100, scale: 0.8 },
   visible: (i: number) => ({
     opacity: 1,
     x: 0,
-    rotateY: 0,
+    scale: 1,
     transition: {
       delay: i * 0.2,
       duration: 0.6,
@@ -202,13 +160,15 @@ export const questCard: Variants = {
 }
 
 export const timelineDot: Variants = {
-  hidden: { scale: 0 },
+  hidden: { scale: 0, opacity: 0 },
   visible: (i: number) => ({
     scale: 1,
+    opacity: 1,
     transition: {
       delay: i * 0.2,
-      duration: 0.3,
       type: 'spring',
+      stiffness: 200,
+      damping: 15,
     },
   }),
 }
@@ -218,24 +178,17 @@ export const timelineLine: Variants = {
   visible: {
     scaleY: 1,
     transition: {
-      duration: 1,
+      duration: 1.5,
       ease: 'easeInOut',
     },
   },
 }
 
-// ═══════════════════════════════════════════════════════════════
-// MISSIONS / PROJECTS
-// ═══════════════════════════════════════════════════════════════
-
 export const missionCard: Variants = {
-  hidden: {
-    opacity: 0,
-    rotateX: -90,
-    transformPerspective: 1200,
-  },
+  hidden: { opacity: 0, y: 50, rotateX: -15 },
   visible: (i: number) => ({
     opacity: 1,
+    y: 0,
     rotateX: 0,
     transition: {
       delay: i * 0.1,
@@ -245,60 +198,48 @@ export const missionCard: Variants = {
   }),
   hover: {
     y: -10,
-    boxShadow: '0 20px 40px rgba(0, 217, 255, 0.3)',
-    transition: {
-      duration: 0.3,
-    },
+    rotateY: 5,
+    transition: { duration: 0.3 },
   },
 }
 
 export const missionReveal: Variants = {
-  hidden: {
-    clipPath: 'polygon(0 0, 0 0, 0 100%, 0 100%)',
-  },
+  hidden: { opacity: 0, scale: 0.8 },
   visible: {
-    clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
+    opacity: 1,
+    scale: 1,
     transition: {
-      duration: 0.8,
-      ease: 'easeInOut',
+      type: 'spring',
+      stiffness: 100,
+      damping: 20,
     },
   },
 }
 
-// ═══════════════════════════════════════════════════════════════
-// ACHIEVEMENTS / BADGES
-// ═══════════════════════════════════════════════════════════════
-
 export const badgeUnlock: Variants = {
-  hidden: {
-    opacity: 0,
-    scale: 0,
-    rotate: -180,
-  },
+  hidden: { scale: 0, rotate: -180, opacity: 0 },
   visible: (i: number) => ({
-    opacity: 1,
     scale: 1,
     rotate: 0,
+    opacity: 1,
     transition: {
       delay: i * 0.08,
-      duration: 0.5,
       type: 'spring',
-      stiffness: 200,
+      stiffness: 150,
+      damping: 15,
     },
   }),
   hover: {
     scale: 1.2,
-    rotate: 5,
-    transition: {
-      duration: 0.2,
-    },
+    rotate: [0, -5, 5, 0],
+    transition: { duration: 0.4 },
   },
 }
 
 export const badgeGlow: Variants = {
   hidden: { opacity: 0 },
   visible: {
-    opacity: [0, 1, 0],
+    opacity: [0.5, 1, 0.5],
     transition: {
       duration: 2,
       repeat: Infinity,
@@ -307,91 +248,68 @@ export const badgeGlow: Variants = {
   },
 }
 
-// ═══════════════════════════════════════════════════════════════
-// TECH ARSENAL
-// ═══════════════════════════════════════════════════════════════
-
 export const weaponSlot: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 50,
-    rotateZ: -10,
-  },
+  hidden: { opacity: 0, scale: 0, rotate: -90 },
   visible: (i: number) => ({
     opacity: 1,
-    y: 0,
-    rotateZ: 0,
+    scale: 1,
+    rotate: 0,
     transition: {
       delay: i * 0.05,
-      duration: 0.4,
-      ease: 'easeOut',
+      type: 'spring',
+      stiffness: 150,
+      damping: 20,
     },
   }),
   hover: {
-    y: -5,
-    rotateZ: 5,
-    transition: {
-      duration: 0.2,
-    },
+    scale: 1.1,
+    rotate: [0, -5, 5, -5, 0],
+    transition: { duration: 0.5 },
   },
 }
 
 export const glitchEffect: Variants = {
-  hidden: { opacity: 1 },
+  hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    x: [0, -2, 2, -2, 0],
-    y: [0, 2, -2, 2, 0],
+    x: [0, -2, 2, -2, 2, 0],
     transition: {
-      duration: 0.3,
-      repeat: Infinity,
-      repeatDelay: 3,
+      duration: 0.5,
     },
   },
 }
 
-// ═══════════════════════════════════════════════════════════════
-// END GAME PORTAL
-// ═══════════════════════════════════════════════════════════════
-
 export const portalRing: Variants = {
-  hidden: {
-    opacity: 0,
-    scale: 0,
-    rotate: 0,
-  },
+  hidden: { scale: 0, rotate: 0, opacity: 0 },
   visible: (i: number) => ({
-    opacity: 0.6,
-    scale: 1 + i * 0.2,
+    scale: 1,
     rotate: 360,
+    opacity: 0.6,
     transition: {
-      duration: 2,
       delay: i * 0.2,
-      repeat: Infinity,
-      ease: 'linear',
+      duration: 1.5,
+      ease: 'easeOut',
     },
   }),
 }
 
 export const portalContent: Variants = {
-  hidden: {
-    opacity: 0,
-    scale: 0.8,
-  },
+  hidden: { opacity: 0, scale: 0.5 },
   visible: {
     opacity: 1,
     scale: 1,
     transition: {
-      duration: 0.8,
-      ease: 'easeOut',
+      delay: 0.8,
+      type: 'spring',
+      stiffness: 100,
+      damping: 20,
     },
   },
 }
 
 export const floatAnimation: Variants = {
-  hidden: { y: 0 },
-  visible: {
-    y: [-10, 10, -10],
+  animate: {
+    y: [0, -20, 0],
     transition: {
       duration: 3,
       repeat: Infinity,
@@ -400,17 +318,13 @@ export const floatAnimation: Variants = {
   },
 }
 
-// ═══════════════════════════════════════════════════════════════
-// CONTAINER VARIANTS (for stagger children)
-// ═══════════════════════════════════════════════════════════════
-
 export const staggerContainer: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
       staggerChildren: 0.1,
-      delayChildren: 0.2,
+      delayChildren: 0.1,
     },
   },
 }
@@ -421,7 +335,7 @@ export const staggerFast: Variants = {
     opacity: 1,
     transition: {
       staggerChildren: 0.05,
-      delayChildren: 0.1,
+      delayChildren: 0,
     },
   },
 }

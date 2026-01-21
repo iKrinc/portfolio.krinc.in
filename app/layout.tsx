@@ -1,9 +1,12 @@
 import type { Metadata } from 'next'
-import { Inter, Orbitron, Rajdhani } from 'next/font/google'
 import './globals.css'
 import { siteMetadata } from '@/data/portfolio-data'
 
-// Font configurations
+// Note: Google Fonts temporarily disabled for offline build
+// Uncomment when network is available:
+/*
+import { Inter, Orbitron, Rajdhani } from 'next/font/google'
+
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
@@ -22,8 +25,15 @@ const rajdhani = Rajdhani({
   variable: '--font-rajdhani',
   display: 'swap',
 })
+*/
+
+// Fallback font classes (using system fonts)
+const inter = { variable: '--font-inter' }
+const orbitron = { variable: '--font-orbitron' }
+const rajdhani = { variable: '--font-rajdhani' }
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteMetadata.siteUrl),
   title: siteMetadata.title,
   description: siteMetadata.description,
   keywords: siteMetadata.keywords,
@@ -64,6 +74,10 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${orbitron.variable} ${rajdhani.variable}`}>
       <head>
         <link rel="icon" href="/favicon.ico" />
+        {/* Load fonts from Google Fonts CDN as fallback */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Orbitron:wght@400..900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
       </head>
       <body className="antialiased">
         {children}
