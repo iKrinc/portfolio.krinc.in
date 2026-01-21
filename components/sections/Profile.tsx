@@ -7,7 +7,10 @@ import { ProfileAnchor } from '@/components/profile/ProfileAnchor'
 import { ProfileDomains } from '@/components/profile/ProfileDomains'
 import { ProfilePrinciples } from '@/components/profile/ProfilePrinciples'
 import { ProfileCapabilities } from '@/components/profile/ProfileCapabilities'
-import profileData from '@/data/profile.json'
+import profileDataImport from '@/data/profile.json'
+import type { ProfileData } from '@/lib/types'
+
+const profileData = profileDataImport as ProfileData
 
 export function Profile() {
   const containerRef = useRef<HTMLDivElement>(null)

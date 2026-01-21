@@ -4,7 +4,10 @@ import { useRef } from 'react'
 import { useReducedMotionContext } from '@/components/shared/ReducedMotionProvider'
 import { SectionLabel } from '@/components/shared/SectionLabel'
 import { ProjectStack } from '@/components/projects/ProjectStack'
-import projectsData from '@/data/projects.json'
+import projectsDataImport from '@/data/projects.json'
+import type { ProjectData } from '@/lib/types'
+
+const projectsData = projectsDataImport as ProjectData
 
 export function Projects() {
   const containerRef = useRef<HTMLDivElement>(null)

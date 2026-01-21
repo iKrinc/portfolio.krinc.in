@@ -1,6 +1,9 @@
 'use client'
 
-import contactData from '@/data/contact.json'
+import contactDataImport from '@/data/contact.json'
+import type { ContactData } from '@/lib/types'
+
+const contactData = contactDataImport as ContactData
 
 export function Footer() {
   // TODO: Framer Motion - fade in on scroll

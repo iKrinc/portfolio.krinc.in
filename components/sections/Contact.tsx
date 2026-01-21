@@ -5,7 +5,10 @@ import { SectionLabel } from '@/components/shared/SectionLabel'
 import { ProtocolSelector } from '@/components/contact/ProtocolSelector'
 import { DirectMessageForm } from '@/components/contact/DirectMessageForm'
 import { SocialChannels } from '@/components/contact/SocialChannels'
-import contactData from '@/data/contact.json'
+import contactDataImport from '@/data/contact.json'
+import type { ContactData } from '@/lib/types'
+
+const contactData = contactDataImport as ContactData
 
 export function Contact() {
   const containerRef = useRef<HTMLDivElement>(null)
