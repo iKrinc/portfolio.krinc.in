@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import { siteMetadata } from '@/data/portfolio-data'
+import { ReducedMotionProvider } from '@/components/shared/ReducedMotionProvider'
 
 // Note: Google Fonts temporarily disabled for offline build
 // Uncomment when network is available:
@@ -80,7 +81,7 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Orbitron:wght@400..900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
       </head>
       <body className="antialiased">
-        {children}
+        <ReducedMotionProvider>{children}</ReducedMotionProvider>
       </body>
     </html>
   )

@@ -1,0 +1,103 @@
+{
+  "projects": [
+    {
+      "id": "project-001",
+      "index": 1,
+      "status": "LIVE",
+      "title": "MOTION_PORTFOLIO_V2",
+      "role": "CREATIVE_DEVELOPER",
+      "visual": {
+        "type": "image",
+        "src": "/assets/projects/project-001.jpg",
+        "alt": "Motion portfolio showcase",
+        "aspectRatio": "16:9"
+      },
+      "techStack": [
+        "Next.js",
+        "GSAP",
+        "Framer Motion",
+        "TypeScript"
+      ],
+      "responsibilities": [
+        "Built scroll-driven animation system",
+        "Optimized to 60fps performance",
+        "Designed cinematic transitions"
+      ],
+      "brief": "A motion-first portfolio for a creative studio. Built custom GSAP timelines and scroll-driven reveals. Site achieved Awwwards recognition.",
+      "link": {
+        "label": "VIEW_PROJECT",
+        "href": "https://example.com",
+        "external": true
+      },
+      "metadata": {
+        "year": 2024,
+        "client": "Studio XYZ",
+        "duration": "3 MONTHS"
+      }
+    },
+    {
+      "id": "project-002",
+      "index": 2,
+      "status": "DEPLOYED",
+      "title": "ECOMMERCE_REBUILD",
+      "role": "LEAD_FRONTEND",
+      "visual": {
+        "type": "image",
+        "src": "/assets/projects/project-002.jpg",
+        "alt": "Ecommerce platform interface",
+        "aspectRatio": "16:9"
+      },
+      "techStack": [
+        "React",
+        "TypeScript",
+        "Shopify API",
+        "Tailwind CSS"
+      ],
+      "responsibilities": [
+        "Rebuilt frontend architecture",
+        "Integrated headless CMS",
+        "Improved Core Web Vitals by 40%"
+      ],
+      "brief": "Complete frontend rebuild for a fashion brand. Implemented headless Shopify with custom React components. Achieved 95+ Lighthouse scores.",
+      "link": {
+        "label": "LAUNCH_SITE",
+        "href": "https://example.com",
+        "external": true
+      }
+    },
+    {
+      "id": "project-003",
+      "index": 3,
+      "status": "ARCHIVED",
+      "title": "INTERACTIVE_EXPERIENCE",
+      "role": "SOLO_PROJECT",
+      "visual": {
+        "type": "image",
+        "src": "/assets/projects/project-003.jpg",
+        "alt": "Interactive WebGL experience",
+        "aspectRatio": "16:9"
+      },
+      "techStack": [
+        "Three.js",
+        "GLSL",
+        "React Three Fiber",
+        "Blender"
+      ],
+      "responsibilities": [
+        "Designed 3D scene architecture",
+        "Created custom shaders",
+        "Optimized for mobile devices"
+      ],
+      "brief": "An experimental WebGL experience exploring particle systems and user interaction. Built with Three.js and custom shaders.",
+      "link": {
+        "label": "VIEW_CODE",
+        "href": "https://github.com/example",
+        "external": true
+      },
+      "metadata": {
+        "year": 2023,
+        "duration": "1 MONTH"
+      }
+    }
+  ]
+}

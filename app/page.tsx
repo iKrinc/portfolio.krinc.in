@@ -1,67 +1,50 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import { AnimatePresence } from 'framer-motion'
-
-// Sections
-import BootSequence from '@/sections/BootSequence'
-import Hero from '@/sections/Hero'
-import PlayerStats from '@/sections/PlayerStats'
-import SkillTree from '@/sections/SkillTree'
-import QuestLog from '@/sections/QuestLog'
-import Missions from '@/sections/Missions'
-import Achievements from '@/sections/Achievements'
-import TechArsenal from '@/sections/TechArsenal'
-import EndGamePortal from '@/sections/EndGamePortal'
-
-// Components
-import Navigation from '@/components/Navigation'
-import ScrollProgress from '@/components/ScrollProgress'
-import CursorEffect from '@/components/CursorEffect'
-import ScanlineOverlay from '@/components/ScanlineOverlay'
+import { useState, useEffect } from 'react'
+import { GradientMesh } from '@/components/shared/GradientMesh'
+import { FilmGrain } from '@/components/shared/FilmGrain'
+import { Loader } from '@/components/sections/Loader'
+import { Hero } from '@/components/sections/Hero'
+import { Profile } from '@/components/sections/Profile'
+import { Projects } from '@/components/sections/Projects'
+import { Contact } from '@/components/sections/Contact'
+import { Footer } from '@/components/sections/Footer'
 
 export default function Home() {
-  const [isBooting, setIsBooting] = useState(true)
-  const [showContent, setShowContent] = useState(false)
+  const [showLoader, setShowLoader] = useState(true)
 
   useEffect(() => {
-    // Boot sequence timer
-    const bootTimer = setTimeout(() => {
-      setIsBooting(false)
-      setTimeout(() => setShowContent(true), 500)
-    }, 3500) // 3.5 seconds boot sequence
-
-    return () => clearTimeout(bootTimer)
+    // TODO: Register GSAP plugins
+    // gsap.registerPlugin(ScrollTrigger)
+    // gsap.registerPlugin(ScrollSmoother) // if needed
   }, [])
 
   return (
-    <main className="relative min-h-screen bg-background-primary overflow-x-hidden">
-      {/* Cursor effect */}
-      <CursorEffect />
+    <main
+      className="main"
+      style={{
+        position: 'relative',
+        minHeight: '100vh',
+        backgroundColor: '#0d0d12',
+        color: 'white',
+        overflow: 'hidden',
+      }}
+    >
+      {/* Loader - shows on first visit only */}
+      {showLoader && <Loader onComplete={() => setShowLoader(false)} />}
 
-      {/* Scanline overlay for retro effect */}
-      <ScanlineOverlay />
+      {/* Fixed background layers */}
+      <GradientMesh />
+      <FilmGrain />
 
-      {/* Boot sequence */}
-      <AnimatePresence mode="wait">
-        {isBooting && <BootSequence key="boot" onComplete={() => setIsBooting(false)} />}
-      </AnimatePresence>
-
-      {/* Main content */}
-      {showContent && (
+      {/* Content sections */}
+      {!showLoader && (
         <>
-          <Navigation />
-          <ScrollProgress />
-
-          {/* All sections */}
           <Hero />
-          <PlayerStats />
-          <SkillTree />
-          <QuestLog />
-          <Missions />
-          <Achievements />
-          <TechArsenal />
-          <EndGamePortal />
+          <Profile />
+          <Projects />
+          <Contact />
+          <Footer />
         </>
       )}
     </main>

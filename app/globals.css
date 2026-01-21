@@ -3,7 +3,15 @@
 @tailwind utilities;
 
 :root {
-  /* Colors - Cyber/Neon Theme */
+  /* Signal Architecture Theme - New Design System */
+  --color-base: #0d0d12;
+  --color-surface: #1a1a24;
+  --color-accent-start: #ff4d00;
+  --color-accent-end: #ff7a3d;
+  --color-text-primary: #ffffff;
+  --color-text-muted: #8a8a9a;
+
+  /* Legacy Colors - Kept for compatibility */
   --color-primary: #00D9FF;
   --color-secondary: #9D4EDD;
   --color-accent: #FFD60A;
