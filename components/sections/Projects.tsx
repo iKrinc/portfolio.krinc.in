@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { useReducedMotionContext } from '@/components/shared/ReducedMotionProvider'
 import { SectionLabel } from '@/components/shared/SectionLabel'
 import { ProjectStack } from '@/components/projects/ProjectStack'
@@ -12,13 +12,9 @@ const projectsData = projectsDataImport as ProjectData
 export function Projects() {
   const containerRef = useRef<HTMLDivElement>(null)
   const { shouldReduceMotion } = useReducedMotionContext()
+  const [focusedIndex, setFocusedIndex] = useState(0)
 
   const totalHeight = shouldReduceMotion ? 'auto' : `${projectsData.projects.length * 150}vh`
-
-  // TODO: GSAP ScrollTrigger
-  // - Variable height based on project count (150vh per project)
-  // - Depth stack transforms managed in ProjectStack component
-  // - Index sync
 
   return (
     <section
@@ -34,24 +30,25 @@ export function Projects() {
       <SectionLabel label="// MISSION_ARCHIVE" />
 
       {/* Project index indicator - fixed bottom-right */}
-      <div
-        className="project-index-indicator"
-        style={{
-          position: 'fixed',
-          bottom: '2rem',
-          right: '2rem',
-          fontSize: '12px',
-          fontFamily: 'monospace',
-          opacity: 0.6,
-          zIndex: 10,
-        }}
-      >
-        {/* TODO: Update based on focused project */}
-        MISSION [01/{projectsData.projects.length.toString().padStart(2, '0')}]
-      </div>
+      {!shouldReduceMotion && (
+        <div
+          className="project-index-indicator"
+          style={{
+            position: 'fixed',
+            bottom: '2rem',
+            right: '2rem',
+            fontSize: '12px',
+            fontFamily: 'monospace',
+            opacity: 0.6,
+            zIndex: 10,
+          }}
+        >
+          MISSION [{(focusedIndex + 1).toString().padStart(2, '0')}/{projectsData.projects.length.toString().padStart(2, '0')}]
+        </div>
+      )}
 
       {/* Project stack */}
-      <ProjectStack projects={projectsData.projects} />
+      <ProjectStack projects={projectsData.projects} containerRef={containerRef} onFocusChange={setFocusedIndex} />
     </section>
   )
 }
