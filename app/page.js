@@ -15,6 +15,9 @@ import Projects from '@/components/Projects';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 
+// Hooks
+import { useASCIIPageTitle } from '@/hooks/use-ascii-page-title';
+
 // Register GSAP plugins
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -30,8 +33,16 @@ export default function Portfolio() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [glitchActive, setGlitchActive] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
+  const [currentSection, setCurrentSection] = useState('hero');
 
   const mainRef = useRef(null);
+
+  // ASCII animated page title (desktop only)
+  useASCIIPageTitle({
+    isLoading: !bootComplete,
+    loadProgress,
+    currentSection
+  });
 
   // Detect screen size for responsive behavior
   useIsomorphicLayoutEffect(() => {
@@ -77,6 +88,46 @@ export default function Portfolio() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Track current section for ASCII title
+  useEffect(() => {
+    if (!bootComplete) return;
+
+    const sections = [
+      { id: 'hero', selector: '.hero-section' },
+      { id: 'about', selector: '.about-section' },
+      { id: 'skills', selector: '.skills-section' },
+      { id: 'projects', selector: isDesktop ? '.projects-section-desktop' : '.projects-section-mobile' },
+      { id: 'contact', selector: '.contact-section' }
+    ];
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '-50% 0px -50% 0px', // Trigger when section is in middle of viewport
+      threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const section = sections.find(s => entry.target.matches(s.selector));
+          if (section) {
+            setCurrentSection(section.id);
+          }
+        }
+      });
+    }, observerOptions);
+
+    // Observe all sections
+    sections.forEach(({ selector }) => {
+      const element = document.querySelector(selector);
+      if (element) {
+        observer.observe(element);
+      }
+    });
+
+    return () => observer.disconnect();
+  }, [bootComplete, isDesktop]);
 
   // Loading simulation
   useEffect(() => {
