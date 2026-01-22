@@ -6,7 +6,7 @@ export default function Projects({ missions, isDesktop }) {
   if (isDesktop) {
     return (
       <div id="missions" className="projects-section-desktop relative h-screen">
-        <div className="projects-track flex items-center h-full" style={{ width: '300vw' }}>
+        <div className="projects-track flex items-center h-full" style={{ width: `${missions.length * 50}vw` }}>
           {missions.map((project, i) => (
             <div key={i} className="min-w-screen h-screen flex items-center justify-center px-4 md:px-16">
               <motion.div whileHover={{ scale: 1.02 }} className="interactive max-w-4xl border-2 border-orange-500/30 bg-black/80 backdrop-blur-xl p-6 md:p-12 hover:border-orange-500 transition-all group relative" style={{ boxShadow: '0 0 30px rgba(249, 115, 22, 0.2)' }}>
@@ -34,7 +34,7 @@ export default function Projects({ missions, isDesktop }) {
   return (
     <section id="missions" className="projects-section-mobile min-h-screen relative py-12 px-4" style={{ background: 'linear-gradient(to bottom, #0a0a0a, #1a1420)' }}>
       <div className="max-w-4xl mx-auto">
-        <motion.h2 
+        <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -45,8 +45,8 @@ export default function Projects({ missions, isDesktop }) {
         </motion.h2>
         <div className="space-y-6">
           {missions.map((project, i) => (
-            <motion.div 
-              key={i} 
+            <motion.div
+              key={i}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: i * 0.1 }}

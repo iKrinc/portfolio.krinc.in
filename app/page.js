@@ -30,7 +30,7 @@ export default function Portfolio() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [glitchActive, setGlitchActive] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
-  
+
   const mainRef = useRef(null);
 
   // Detect screen size for responsive behavior
@@ -38,7 +38,7 @@ export default function Portfolio() {
     const checkScreenSize = () => {
       setIsDesktop(window.innerWidth >= 1024);
     };
-    
+
     checkScreenSize();
     window.addEventListener('resize', checkScreenSize);
     return () => window.removeEventListener('resize', checkScreenSize);
@@ -112,95 +112,96 @@ export default function Portfolio() {
       if (!isDesktop) return;
 
       // Hero parallax
-      gsap.to('.hero-bg-layer', { 
-        yPercent: 30, 
-        ease: 'none', 
-        scrollTrigger: { 
-          trigger: '.hero-section', 
-          start: 'top top', 
-          end: 'bottom top', 
-          scrub: 1.5 
-        } 
+      gsap.to('.hero-bg-layer', {
+        yPercent: 30,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '.hero-section',
+          start: 'top top',
+          end: 'bottom top',
+          scrub: 1.5
+        }
       });
 
-      gsap.to('.hero-content', { 
-        yPercent: -15, 
-        opacity: 0.5, 
-        ease: 'power2.out', 
-        scrollTrigger: { 
-          trigger: '.hero-section', 
-          start: 'top top', 
-          end: 'bottom top', 
-          scrub: 1.5 
-        } 
-      });
-      
-      gsap.to('.float-element', { 
-        y: 'random(-30, 30)', 
-        x: 'random(-20, 20)', 
-        rotation: 'random(-15, 15)', 
-        duration: 'random(4, 8)', 
-        repeat: -1, 
-        yoyo: true, 
-        ease: 'sine.inOut', 
-        stagger: 0.2 
+      gsap.to('.hero-content', {
+        yPercent: -15,
+        opacity: 0.5,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: '.hero-section',
+          start: 'top top',
+          end: 'bottom top',
+          scrub: 1.5
+        }
       });
 
-      gsap.to('.particle', { 
-        y: 'random(-200, 200)', 
-        x: 'random(-100, 100)', 
-        opacity: 'random(0.1, 0.5)', 
-        duration: 'random(3, 7)', 
-        repeat: -1, 
-        yoyo: true, 
-        ease: 'sine.inOut', 
-        stagger: { each: 0.05, from: 'random' } 
+      gsap.to('.float-element', {
+        y: 'random(-30, 30)',
+        x: 'random(-20, 20)',
+        rotation: 'random(-15, 15)',
+        duration: 'random(4, 8)',
+        repeat: -1,
+        yoyo: true,
+        ease: 'sine.inOut',
+        stagger: 0.2
       });
-      
+
+      gsap.to('.particle', {
+        y: 'random(-200, 200)',
+        x: 'random(-100, 100)',
+        opacity: 'random(0.1, 0.5)',
+        duration: 'random(3, 7)',
+        repeat: -1,
+        yoyo: true,
+        ease: 'sine.inOut',
+        stagger: { each: 0.05, from: 'random' }
+      });
+
       // About cards
-      gsap.from('.about-card', { 
-        y: 100, 
-        opacity: 0, 
+      gsap.from('.about-card', {
+        y: 100,
+        opacity: 0,
         duration: 1.2,
-        stagger: 0.3, 
-        scrollTrigger: { 
-          trigger: '.about-section', 
-          start: 'top 70%', 
-          end: 'top 30%', 
+        stagger: 0.3,
+        scrollTrigger: {
+          trigger: '.about-section',
+          start: 'top 70%',
+          end: 'top 30%',
           scrub: 2
-        } 
+        }
       });
-      
+
       // Projects horizontal scroll
+      const missionCount = portfolioData.missions.length;
       const projectsTimeline = gsap.timeline({
         scrollTrigger: {
           trigger: '.projects-section-desktop',
           start: 'top top',
-          end: () => `+=${window.innerWidth * 2}`,
+          end: () => `+=${window.innerWidth * (missionCount - 1)}`,
           pin: true,
           scrub: 1,
           anticipatePin: 1,
           invalidateOnRefresh: true, // Crucial for responsive crashes
           snap: {
-            snapTo: [0, 0.5, 1],
+            snapTo: Array.from({ length: missionCount }, (_, i) => i / (missionCount - 1)),
             duration: { min: 0.2, max: 0.5 },
             ease: 'power1.inOut'
           }
         }
       });
-      projectsTimeline.to('.projects-track', { xPercent: -66.66, ease: 'none' });
-      
+      projectsTimeline.to('.projects-track', { xPercent: -((missionCount - 1) / missionCount) * 100, ease: 'none' });
+
       // Contact
-      gsap.from('.contact-content', { 
-        scale: 0.85, 
+      gsap.from('.contact-content', {
+        scale: 0.85,
         opacity: 0,
         duration: 1.5,
-        scrollTrigger: { 
-          trigger: '.contact-section', 
-          start: 'top 70%', 
-          end: 'top 30%', 
+        scrollTrigger: {
+          trigger: '.contact-section',
+          start: 'top 70%',
+          end: 'top 30%',
           scrub: 2
-        } 
+        }
       });
     }, mainRef);
 
@@ -231,46 +232,46 @@ export default function Portfolio() {
   return (
     <div ref={mainRef} className="bg-[#0a0a0a] text-white relative">
       {glitchActive && (
-        <div 
-          className="fixed inset-0 pointer-events-none z-[9999]" 
-          style={{ 
-            background: 'linear-gradient(rgba(255,0,0,0.1) 50%, rgba(0,255,0,0.1) 50%)', 
-            mixBlendMode: 'difference' 
-          }} 
+        <div
+          className="fixed inset-0 pointer-events-none z-[9999]"
+          style={{
+            background: 'linear-gradient(rgba(255,0,0,0.1) 50%, rgba(0,255,0,0.1) 50%)',
+            mixBlendMode: 'difference'
+          }}
         />
       )}
-      
+
       <div className="fixed inset-0 pointer-events-none z-[9997] opacity-10" style={{ backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.03) 4px)' }} />
-      
-      <HUD 
-        scrollProgress={scrollProgress} 
-        cursorPos={cursorPos} 
-        cursorHover={cursorHover} 
+
+      <HUD
+        scrollProgress={scrollProgress}
+        cursorPos={cursorPos}
+        cursorHover={cursorHover}
         isDesktop={isDesktop}
       />
 
       <Hero data={portfolioData.operator} glitchActive={glitchActive} />
-      
-      <About 
-        data={portfolioData.operator} 
-        stats={portfolioData.stats} 
-        capabilities={portfolioData.capabilities} 
+
+      <About
+        data={portfolioData.operator}
+        stats={portfolioData.stats}
+        capabilities={portfolioData.capabilities}
         isDesktop={isDesktop}
       />
-      
-      <Skills 
-        arsenal={portfolioData.arsenal} 
-        tools={portfolioData.tools} 
+
+      <Skills
+        arsenal={portfolioData.arsenal}
+        tools={portfolioData.tools}
         isDesktop={isDesktop}
       />
-      
-      <Projects 
-        missions={portfolioData.missions} 
+
+      <Projects
+        missions={portfolioData.missions}
         isDesktop={isDesktop}
       />
-      
+
       <Contact data={portfolioData.contact} />
-      
+
       <Footer />
     </div>
   );
