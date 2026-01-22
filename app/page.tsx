@@ -1,6 +1,8 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { GradientMesh } from '@/components/shared/GradientMesh'
 import { FilmGrain } from '@/components/shared/FilmGrain'
 import { Loader } from '@/components/sections/Loader'
@@ -14,9 +16,8 @@ export default function Home() {
   const [showLoader, setShowLoader] = useState(true)
 
   useEffect(() => {
-    // TODO: Register GSAP plugins
-    // gsap.registerPlugin(ScrollTrigger)
-    // gsap.registerPlugin(ScrollSmoother) // if needed
+    // Register GSAP plugins once on mount
+    gsap.registerPlugin(ScrollTrigger)
   }, [])
 
   return (
