@@ -1,5 +1,7 @@
 'use client'
 
+import { motion } from 'framer-motion'
+import { useReducedMotionContext } from '@/components/shared/ReducedMotionProvider'
 import type { ProfileData } from '@/lib/types'
 
 interface ProfilePrinciplesProps {
@@ -7,13 +9,33 @@ interface ProfilePrinciplesProps {
 }
 
 export function ProfilePrinciples({ data }: ProfilePrinciplesProps) {
-  // TODO: Framer Motion
-  // - Large statement reveals (fade + upward drift)
-  // - Horizontal rule draw-in between statements
-  // - Optional: Mask reveals (horizontal clipping)
+  const { shouldReduceMotion } = useReducedMotionContext()
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.2,
+      },
+    },
+  }
+
+  const principleVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.16, 1, 0.3, 1],
+      },
+    },
+  }
 
   return (
-    <div
+    <motion.div
       className="profile-principles"
       style={{
         display: 'flex',
@@ -23,9 +45,13 @@ export function ProfilePrinciples({ data }: ProfilePrinciplesProps) {
         height: '100%',
         padding: '0 15vw',
       }}
+      initial={shouldReduceMotion ? undefined : 'hidden'}
+      whileInView={shouldReduceMotion ? undefined : 'visible'}
+      viewport={{ once: true, amount: 0.3 }}
+      variants={containerVariants}
     >
       {/* Section header */}
-      <h3
+      <motion.h3
         style={{
           fontSize: '20px',
           fontFamily: 'monospace',
@@ -33,14 +59,15 @@ export function ProfilePrinciples({ data }: ProfilePrinciplesProps) {
           opacity: 0.6,
           marginBottom: '4rem',
         }}
+        variants={principleVariants}
       >
         OPERATING_PRINCIPLES
-      </h3>
+      </motion.h3>
 
       {/* Principle list */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '4rem', width: '100%', maxWidth: '800px' }}>
         {data.map((principle, index) => (
-          <div key={index} className="principle-block">
+          <motion.div key={index} className="principle-block" variants={principleVariants}>
             {/* Principle statement */}
             <p
               style={{
@@ -66,9 +93,9 @@ export function ProfilePrinciples({ data }: ProfilePrinciplesProps) {
                 }}
               />
             )}
-          </div>
+          </motion.div>
         ))}
       </div>
-    </div>
+    </motion.div>
   )
 }
