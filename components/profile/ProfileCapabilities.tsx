@@ -1,5 +1,7 @@
 'use client'
 
+import { motion } from 'framer-motion'
+import { useReducedMotionContext } from '@/components/shared/ReducedMotionProvider'
 import type { ProfileData } from '@/lib/types'
 
 interface ProfileCapabilitiesProps {
@@ -7,10 +9,7 @@ interface ProfileCapabilitiesProps {
 }
 
 export function ProfileCapabilities({ data }: ProfileCapabilitiesProps) {
-  // TODO: Framer Motion
-  // - Column stagger (left → right)
-  // - Item stagger within each column (top → bottom)
-  // - Header lock-in animation
+  const { shouldReduceMotion } = useReducedMotionContext()
 
   const columns = [
     { title: 'MOTION', items: data.motion },
@@ -18,8 +17,43 @@ export function ProfileCapabilities({ data }: ProfileCapabilitiesProps) {
     { title: 'DESIGN', items: data.design },
   ]
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.2,
+      },
+    },
+  }
+
+  const columnVariants = {
+    hidden: { opacity: 0, x: -30 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.16, 1, 0.3, 1],
+      },
+    },
+  }
+
+  const headerVariants = {
+    hidden: { opacity: 0, y: -10 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.4,
+        ease: [0.16, 1, 0.3, 1],
+      },
+    },
+  }
+
   return (
-    <div
+    <motion.div
       className="profile-capabilities"
       style={{
         display: 'flex',
@@ -29,9 +63,13 @@ export function ProfileCapabilities({ data }: ProfileCapabilitiesProps) {
         height: '100%',
         padding: '0 10vw',
       }}
+      initial={shouldReduceMotion ? undefined : 'hidden'}
+      whileInView={shouldReduceMotion ? undefined : 'visible'}
+      viewport={{ once: true, amount: 0.3 }}
+      variants={containerVariants}
     >
       {/* Section header */}
-      <h3
+      <motion.h3
         style={{
           fontSize: '20px',
           fontFamily: 'monospace',
@@ -39,9 +77,10 @@ export function ProfileCapabilities({ data }: ProfileCapabilitiesProps) {
           opacity: 0.6,
           marginBottom: '3rem',
         }}
+        variants={headerVariants}
       >
         CAPABILITIES
-      </h3>
+      </motion.h3>
 
       {/* Capabilities grid */}
       <div
@@ -53,8 +92,8 @@ export function ProfileCapabilities({ data }: ProfileCapabilitiesProps) {
           maxWidth: '1000px',
         }}
       >
-        {columns.map((column) => (
-          <div key={column.title} className="capability-column">
+        {columns.map((column, columnIndex) => (
+          <motion.div key={column.title} className="capability-column" variants={columnVariants}>
             {/* Column header */}
             <h4
               style={{
@@ -79,9 +118,9 @@ export function ProfileCapabilities({ data }: ProfileCapabilitiesProps) {
                 </p>
               ))}
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
-    </div>
+    </motion.div>
   )
 }

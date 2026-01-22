@@ -1,20 +1,45 @@
 'use client'
 
+import { motion } from 'framer-motion'
 import type { ContactData } from '@/lib/types'
 
 interface SocialChannelsProps {
   data: ContactData['protocols']['socialChannels']
   onClose: () => void
+  shouldReduceMotion: boolean
 }
 
-export function SocialChannels({ data, onClose }: SocialChannelsProps) {
-  // TODO: Framer Motion
-  // - Container expand animation
-  // - Channel link stagger reveals
-  // - Hover states (row highlight, arrow shift)
+export function SocialChannels({ data, onClose, shouldReduceMotion }: SocialChannelsProps) {
+  // Container expand animation
+  const containerVariants = {
+    hidden: { opacity: 0, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.4,
+        ease: [0.16, 1, 0.3, 1], // ease-out-expo
+        staggerChildren: 0.08,
+        delayChildren: 0.1,
+      },
+    },
+  }
+
+  // Individual channel link reveal (fade + drift up)
+  const itemVariants = {
+    hidden: { opacity: 0, y: 15 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: [0.16, 1, 0.3, 1],
+      },
+    },
+  }
 
   return (
-    <div
+    <motion.div
       className="social-channels"
       style={{
         padding: '2rem',
@@ -22,9 +47,12 @@ export function SocialChannels({ data, onClose }: SocialChannelsProps) {
         backgroundColor: 'rgba(26, 26, 36, 0.8)',
         textAlign: 'left',
       }}
+      initial={shouldReduceMotion ? undefined : 'hidden'}
+      animate={shouldReduceMotion ? undefined : 'visible'}
+      variants={containerVariants}
     >
       {/* Header with close button */}
-      <div
+      <motion.div
         style={{
           display: 'flex',
           justifyContent: 'space-between',
@@ -33,6 +61,7 @@ export function SocialChannels({ data, onClose }: SocialChannelsProps) {
           paddingBottom: '1rem',
           borderBottom: '1px solid rgba(255, 255, 255, 0.2)',
         }}
+        variants={itemVariants}
       >
         <h3 style={{ fontSize: '18px', fontFamily: 'monospace' }}>{data.label}</h3>
         <button
@@ -48,12 +77,12 @@ export function SocialChannels({ data, onClose }: SocialChannelsProps) {
         >
           ×
         </button>
-      </div>
+      </motion.div>
 
       {/* Channel links */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
         {data.channels.map((channel, index) => (
-          <a
+          <motion.a
             key={index}
             href={channel.url}
             target="_blank"
@@ -66,17 +95,36 @@ export function SocialChannels({ data, onClose }: SocialChannelsProps) {
               borderBottom: index < data.channels.length - 1 ? '1px solid rgba(255, 255, 255, 0.1)' : 'none',
               textDecoration: 'none',
               color: 'white',
-              transition: 'all 0.3s ease',
             }}
+            variants={itemVariants}
+            whileHover={
+              shouldReduceMotion
+                ? undefined
+                : {
+                    backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                    paddingLeft: '0.5rem',
+                    paddingRight: '0.5rem',
+                    marginLeft: '-0.5rem',
+                    marginRight: '-0.5rem',
+                    transition: { duration: 0.2 },
+                  }
+            }
           >
             <div style={{ display: 'flex', gap: '2rem', alignItems: 'baseline' }}>
               <span style={{ fontSize: '16px', fontFamily: 'monospace', fontWeight: 600 }}>{channel.platform}</span>
               <span style={{ fontSize: '16px', fontFamily: 'monospace', opacity: 0.6 }}>{channel.username}</span>
             </div>
-            <span style={{ fontSize: '16px', opacity: 0.6 }}>→</span>
-          </a>
+            <motion.span
+              style={{ fontSize: '16px', opacity: 0.6 }}
+              animate={{ x: 0 }}
+              whileHover={shouldReduceMotion ? undefined : { x: 5 }}
+              transition={{ duration: 0.2 }}
+            >
+              →
+            </motion.span>
+          </motion.a>
         ))}
       </div>
-    </div>
+    </motion.div>
   )
 }
