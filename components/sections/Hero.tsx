@@ -208,8 +208,8 @@ export function Hero() {
               opacity: 0.6,
             }),
           }}
-          initial={shouldReduceMotion ? false : 'hidden'}
-          animate={shouldReduceMotion ? false : 'visible'}
+          initial={shouldReduceMotion ? undefined : 'hidden'}
+          animate={shouldReduceMotion ? undefined : 'visible'}
           variants={headlineVariants}
         >
           <h1
@@ -259,8 +259,8 @@ export function Hero() {
                   marginBottom: '0.5rem',
                   transformOrigin: 'right center',
                 }}
-                initial={shouldReduceMotion ? false : 'hidden'}
-                animate={shouldReduceMotion ? false : 'visible'}
+                initial={shouldReduceMotion ? undefined : 'hidden'}
+                animate={shouldReduceMotion ? undefined : 'visible'}
                 variants={metadataLineVariants}
                 custom={index}
               />
@@ -270,8 +270,8 @@ export function Hero() {
                   fontSize: '14px',
                   fontFamily: 'monospace',
                 }}
-                initial={shouldReduceMotion ? false : 'hidden'}
-                animate={shouldReduceMotion ? false : 'visible'}
+                initial={shouldReduceMotion ? undefined : 'hidden'}
+                animate={shouldReduceMotion ? undefined : 'visible'}
                 variants={metadataTextVariants}
                 custom={index}
               >
@@ -293,8 +293,8 @@ export function Hero() {
             // If reduced motion, hide immediately
             ...(shouldReduceMotion && { opacity: 0 }),
           }}
-          initial={shouldReduceMotion ? false : 'hidden'}
-          animate={shouldReduceMotion ? false : 'pulse'}
+          initial={shouldReduceMotion ? undefined : 'hidden'}
+          animate={shouldReduceMotion ? undefined : 'pulse'}
           variants={scrollIndicatorVariants}
         >
           ↓ SCROLL TO EXPLORE

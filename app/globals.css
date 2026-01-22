@@ -84,6 +84,24 @@
     background-color: var(--color-primary);
     color: var(--bg-primary);
   }
+
+  /* Focus states for keyboard navigation */
+  *:focus-visible {
+    outline: 2px solid var(--color-accent-start);
+    outline-offset: 3px;
+  }
+
+  button:focus-visible,
+  a:focus-visible {
+    outline: 2px solid var(--color-accent-start);
+    outline-offset: 3px;
+  }
+
+  input:focus-visible,
+  textarea:focus-visible {
+    outline: 2px solid var(--color-accent-start);
+    outline-offset: 2px;
+  }
 }
 
 @layer components {
