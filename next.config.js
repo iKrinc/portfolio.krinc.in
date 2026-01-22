@@ -3,6 +3,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  // Turbopack disabled due to Windows PostCSS subprocess issues
+  // turbopack: {}, // Enable Turbopack with default settings
   // serverExternalPackages: [], // Add packages if needed
   webpack(config, { dev }) {
     if (dev) {
