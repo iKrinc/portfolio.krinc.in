@@ -1,6 +1,7 @@
 'use client'
 
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
+import { useReducedMotionContext } from '@/components/shared/ReducedMotionProvider'
 import { SectionLabel } from '@/components/shared/SectionLabel'
 import { ProtocolSelector } from '@/components/contact/ProtocolSelector'
 import { DirectMessageForm } from '@/components/contact/DirectMessageForm'
@@ -12,14 +13,22 @@ const contactData = contactDataImport as ContactData
 
 export function Contact() {
   const containerRef = useRef<HTMLDivElement>(null)
+  const { shouldReduceMotion } = useReducedMotionContext()
   const [selectedProtocol, setSelectedProtocol] = useState<string | null>(null)
 
-  // TODO: GSAP
-  // - Section entry animation (headline, instruction, protocol stagger)
+  // Escape key closes expanded protocol
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && selectedProtocol) {
+        setSelectedProtocol(null)
+      }
+    }
 
-  // TODO: Framer Motion
-  // - Protocol expand/collapse
-  // - Form element reveals
+    window.addEventListener('keydown', handleEscape)
+    return () => {
+      window.removeEventListener('keydown', handleEscape)
+    }
+  }, [selectedProtocol])
 
   return (
     <section
@@ -68,6 +77,7 @@ export function Contact() {
           <ProtocolSelector
             protocols={contactData.protocols}
             onSelect={(protocol) => setSelectedProtocol(protocol)}
+            shouldReduceMotion={shouldReduceMotion}
           />
         ) : (
           <>
@@ -75,12 +85,14 @@ export function Contact() {
               <DirectMessageForm
                 data={contactData.protocols.directMessage}
                 onClose={() => setSelectedProtocol(null)}
+                shouldReduceMotion={shouldReduceMotion}
               />
             )}
             {selectedProtocol === 'socialChannels' && contactData.protocols.socialChannels.enabled && (
               <SocialChannels
                 data={contactData.protocols.socialChannels}
                 onClose={() => setSelectedProtocol(null)}
+                shouldReduceMotion={shouldReduceMotion}
               />
             )}
           </>
