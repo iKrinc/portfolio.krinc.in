@@ -208,12 +208,11 @@ export default function Portfolio() {
         stagger: { each: 0.05, from: 'random' }
       });
 
-      // About cards
+      // About cards — only Y parallax, Framer Motion owns opacity
       gsap.from('.about-card', {
-        y: 100,
-        opacity: 0,
+        y: 60,
         duration: 1.2,
-        stagger: 0.3,
+        stagger: 0.2,
         scrollTrigger: {
           trigger: '.about-section',
           start: 'top 70%',
