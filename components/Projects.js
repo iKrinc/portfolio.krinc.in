@@ -124,40 +124,42 @@ export default function Projects({ missions, isDesktop }) {
               <h3 className="text-xl font-bold mb-3 text-white font-mono">{project.title}</h3>
               <p className="text-sm text-gray-400 leading-relaxed mb-4 font-mono">{project.desc}</p>
 
-              <div className="flex gap-2 flex-wrap mb-4">
-                {project.tech.map((t, j) => (
-                  <span key={j} className="px-3 py-1 border border-orange-500/50 text-orange-500 text-xs font-mono bg-orange-500/5">
-                    {t}
-                  </span>
-                ))}
-              </div>
-
-              {(project.link || project.repo) && (
-                <div className="flex gap-3">
-                  {project.link && (
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-3 py-2 bg-orange-500/10 border border-orange-500/50 hover:bg-orange-500/20 transition-all font-mono text-xs text-orange-500"
-                    >
-                      <ExternalLink size={11} />
-                      LIVE SITE
-                    </a>
-                  )}
-                  {project.repo && (
-                    <a
-                      href={project.repo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-3 py-2 bg-white/5 border border-white/10 hover:bg-white/10 transition-all font-mono text-xs text-gray-400"
-                    >
-                      <Github size={11} />
-                      SOURCE
-                    </a>
-                  )}
+              <div className="flex flex-col gap-4">
+                <div className="flex gap-2 flex-wrap">
+                  {project.tech.map((t, j) => (
+                    <span key={j} className="px-3 py-1 border border-orange-500/50 text-orange-500 text-xs font-mono bg-orange-500/5">
+                      {t}
+                    </span>
+                  ))}
                 </div>
-              )}
+
+                {(project.link || project.repo) && (
+                  <div className="flex gap-3">
+                    {project.link && (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-3 py-2 bg-orange-500/10 border border-orange-500/50 hover:bg-orange-500/20 transition-all font-mono text-xs text-orange-500"
+                      >
+                        <ExternalLink size={11} />
+                        LIVE SITE
+                      </a>
+                    )}
+                    {project.repo && (
+                      <a
+                        href={project.repo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-3 py-2 bg-white/5 border border-white/10 hover:bg-white/10 transition-all font-mono text-xs text-gray-400"
+                      >
+                        <Github size={11} />
+                        SOURCE
+                      </a>
+                    )}
+                  </div>
+                )}
+              </div>
             </motion.div>
           ))}
         </div>

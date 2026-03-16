@@ -16,7 +16,7 @@ export default function Skills({ arsenal, tools, isDesktop }) {
           TECH ARSENAL
         </motion.h2>
         
-        <div className="grid md:grid-cols-3 gap-6 md:gap-8 mb-12">
+        <div className="grid md:grid-cols-3 gap-6 md:gap-8 mb-6 md:mb-12">
           {arsenal.map((cat, i) => (
             <motion.div 
               key={i} 

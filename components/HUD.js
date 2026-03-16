@@ -4,7 +4,8 @@ import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
 export default function HUD({ scrollProgress, cursorPos, cursorHover, isDesktop }) {
-  const shouldHide = !isDesktop && scrollProgress >= 98;
+  // On mobile: hide at very top (< 3%) and near bottom (> 85%)
+  const shouldHide = !isDesktop && (scrollProgress < 3 || scrollProgress >= 85);
   const [particles, setParticles] = useState([]);
 
   // Generate particle positions client-side only to prevent hydration mismatch

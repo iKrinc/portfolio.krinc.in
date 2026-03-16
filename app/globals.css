@@ -70,11 +70,6 @@
     min-width: 44px;
   }
   
-  /* Hide floating shapes on mobile for performance */
-  .float-element {
-    display: none;
-  }
-  
   /* Simpler animations on mobile */
   .particle {
     display: none;

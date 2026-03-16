@@ -160,6 +160,29 @@ export default function Portfolio() {
     }, 8000);
 
     const ctx = gsap.context(() => {
+      // Float elements + particles — run on ALL devices
+      gsap.to('.float-element', {
+        y: 'random(-30, 30)',
+        x: 'random(-20, 20)',
+        rotation: 'random(-15, 15)',
+        duration: 'random(4, 8)',
+        repeat: -1,
+        yoyo: true,
+        ease: 'sine.inOut',
+        stagger: 0.2
+      });
+
+      gsap.to('.particle', {
+        y: 'random(-200, 200)',
+        x: 'random(-100, 100)',
+        opacity: 'random(0.1, 0.5)',
+        duration: 'random(3, 7)',
+        repeat: -1,
+        yoyo: true,
+        ease: 'sine.inOut',
+        stagger: { each: 0.05, from: 'random' }
+      });
+
       if (!isDesktop) return;
 
       // Hero parallax
@@ -184,28 +207,6 @@ export default function Portfolio() {
           end: 'bottom top',
           scrub: 1.5
         }
-      });
-
-      gsap.to('.float-element', {
-        y: 'random(-30, 30)',
-        x: 'random(-20, 20)',
-        rotation: 'random(-15, 15)',
-        duration: 'random(4, 8)',
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut',
-        stagger: 0.2
-      });
-
-      gsap.to('.particle', {
-        y: 'random(-200, 200)',
-        x: 'random(-100, 100)',
-        opacity: 'random(0.1, 0.5)',
-        duration: 'random(3, 7)',
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut',
-        stagger: { each: 0.05, from: 'random' }
       });
 
       // About cards — only Y parallax, Framer Motion owns opacity
