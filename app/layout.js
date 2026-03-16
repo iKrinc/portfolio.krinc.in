@@ -14,22 +14,22 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata = {
-  title: 'OPERATOR | Motion-First Portfolio',
-  description: 'Interactive developer portfolio with high-performance UI systems and motion-driven experiences.',
-  keywords: ['Frontend Engineer', 'Motion Specialist', 'UI Architect', 'GSAP', 'Next.js', 'React', 'Portfolio'],
-  authors: [{ name: 'Operator' }],
+  title: 'Srinivas Krishna | Frontend Engineer',
+  description: 'Frontend engineer by profession, versatile developer by passion. Building scalable UI systems, motion-enhanced interfaces, and open-source tools.',
+  keywords: ['Frontend Engineer', 'React Developer', 'Next.js', 'TypeScript', 'UI Engineer', 'Open Source', 'Portfolio', 'Srinivas Krishna'],
+  authors: [{ name: 'Srinivas Krishna S K' }],
   openGraph: {
-    title: 'OPERATOR | Motion-First Portfolio',
-    description: 'High-performance UI systems and motion-driven interfaces.',
+    title: 'Srinivas Krishna | Frontend Engineer',
+    description: 'Frontend engineer by profession, versatile developer by passion. Building scalable UI systems, motion-enhanced interfaces, and open-source tools.',
     url: 'https://portfolio.krinc.in',
-    siteName: 'Operator Portfolio',
+    siteName: 'Srinivas Krishna Portfolio',
     locale: 'en_US',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'OPERATOR | Motion-First Portfolio',
-    description: 'High-performance UI systems and motion-driven interfaces.',
+    title: 'Srinivas Krishna | Frontend Engineer',
+    description: 'Frontend engineer by profession, versatile developer by passion.',
   },
   icons: {
     icon: '/favicon.svg',

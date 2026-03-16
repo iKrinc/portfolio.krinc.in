@@ -45,7 +45,7 @@ export default function About({ data, stats, capabilities, isDesktop }) {
           className="text-4xl md:text-7xl font-bold mb-8 md:mb-12 text-center font-mono"
           style={{ textShadow: '4px 4px 0 #f97316', color: '#fff' }}
         >
-          OPERATOR PROFILE
+          ABOUT ME
         </motion.h2>
 
         <motion.div
@@ -56,11 +56,11 @@ export default function About({ data, stats, capabilities, isDesktop }) {
             className="about-card border-2 md:border-4 border-orange-500 bg-black/80 p-6 md:p-8"
             style={{ boxShadow: '6px 6px 0 rgba(249, 115, 22, 0.5)' }}
           >
-            <h3 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 font-mono text-orange-500">[ STATUS REPORT ]</h3>
+            <h3 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 font-mono text-orange-500">[ PROFILE ]</h3>
             <p className="text-gray-300 leading-relaxed mb-3 md:mb-4 font-mono text-xs md:text-sm">
-              CLASSIFICATION: {data.classification}<br />
-              CLEARANCE LEVEL: {data.clearance}<br />
-              COMBAT RATING: {data.combatRating}
+              ROLE: {data.classification}<br />
+              LEVEL: {data.clearance}<br />
+              STATUS: {data.status}
             </p>
             <p className="text-gray-400 leading-relaxed font-mono text-xs md:text-sm">{data.description}</p>
           </div>
@@ -73,7 +73,7 @@ export default function About({ data, stats, capabilities, isDesktop }) {
             <ul className="space-y-2 md:space-y-3">
               {capabilities.map((item, i) => (
                 <li key={i} className="flex items-center gap-2 md:gap-3 text-gray-300 font-mono text-xs md:text-sm">
-                  <span className="text-orange-500">[X]</span>{item}
+                  <span className="text-orange-500">&gt;</span>{item}
                 </li>
               ))}
             </ul>

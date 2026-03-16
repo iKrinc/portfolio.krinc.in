@@ -22,11 +22,11 @@ export default function LoadingScreen({ loadProgress }) {
           <motion.span animate={{ opacity: [1, 0] }} transition={{ duration: 0.5, repeat: Infinity }} className="inline-block w-2 h-4 bg-green-500 ml-1" style={{ textShadow: '0 0 10px rgba(34, 197, 94, 0.8)' }} />
         </motion.div>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }} className="space-y-1 mb-6">
-          <div className="text-gray-600">Initializing combat systems...</div>
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.3 }} className="text-gray-500"><span className="text-green-500">✓</span> Loading weapon systems</motion.div>
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.6 }} className="text-gray-500"><span className="text-green-500">✓</span> Compiling GSAP engine</motion.div>
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.9 }} className="text-gray-500"><span className="text-green-500">✓</span> Establishing uplink</motion.div>
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2.2 }} className="text-gray-500"><span className="text-green-500">✓</span> Initializing mission log</motion.div>
+          <div className="text-gray-600">Initializing portfolio...</div>
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.3 }} className="text-gray-500"><span className="text-green-500">✓</span> Loading GSAP + Framer Motion</motion.div>
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.6 }} className="text-gray-500"><span className="text-green-500">✓</span> Compiling project data</motion.div>
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.9 }} className="text-gray-500"><span className="text-green-500">✓</span> Registering scroll triggers</motion.div>
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2.2 }} className="text-gray-500"><span className="text-green-500">✓</span> Ready to render</motion.div>
         </motion.div>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2.5 }} className="mb-4">
           <div className="text-gray-600 mb-2">Deployment: <span className="text-orange-500">{Math.round(loadProgress)}%</span></div>

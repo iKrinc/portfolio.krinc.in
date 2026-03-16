@@ -12,7 +12,7 @@ export default function Hero({ data, glitchActive }) {
       <div className="float-element absolute top-1/2 right-1/3 w-12 md:w-20 h-12 md:h-20 border-2 border-orange-400/30 pointer-events-none" />
 
       <div className="hero-content relative z-10 max-w-7xl px-4 md:px-8 text-center">
-        <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.2 }} className="font-mono text-orange-500 text-xs md:text-sm mb-4 md:mb-6 tracking-widest">[ COMBAT SYSTEMS ONLINE ]</motion.div>
+        <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.2 }} className="font-mono text-orange-500 text-xs md:text-sm mb-4 md:mb-6 tracking-widest">[ PORTFOLIO ONLINE ]</motion.div>
         <motion.h1 initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1.2, delay: 0.4 }} className="text-4xl md:text-7xl lg:text-9xl font-bold mb-6 md:mb-8" style={{ textShadow: glitchActive ? '3px 3px #f97316, -3px -3px #a855f7' : '0 0 40px rgba(249, 115, 22, 0.3)' }}>
           <span className="block">{data.name}</span>
           <span className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-orange-400 to-purple-500 text-5xl md:text-8xl">
@@ -23,7 +23,7 @@ export default function Hero({ data, glitchActive }) {
           {data.roles.join(' // ')}
         </motion.p>
         <motion.div initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 1.2 }} className="flex gap-3 md:gap-4 justify-center flex-wrap px-4">
-          {[{ t: 'MISSION LOG', h: '#missions' }, { t: 'TECH ARSENAL', h: '#arsenal' }, { t: 'UPLINK', h: '#uplink' }].map((btn, i) => (
+          {[{ t: 'PROJECTS', h: '#missions' }, { t: 'SKILLS', h: '#arsenal' }, { t: 'CONTACT', h: '#uplink' }].map((btn, i) => (
             <a key={i} href={btn.h} className="interactive px-4 md:px-8 py-2 md:py-3 border border-orange-500/50 bg-orange-500/5 hover:bg-orange-500/20 transition-all cursor-pointer group font-mono text-xs md:text-base">
               <span className="text-orange-500 group-hover:text-white transition-colors">{btn.t}</span>
             </a>

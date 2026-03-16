@@ -1,9 +1,22 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 
 export default function HUD({ scrollProgress, cursorPos, cursorHover, isDesktop }) {
   const shouldHide = !isDesktop && scrollProgress >= 98;
+  const [particles, setParticles] = useState([]);
+
+  // Generate particle positions client-side only to prevent hydration mismatch
+  useEffect(() => {
+    setParticles(
+      Array.from({ length: 30 }, (_, i) => ({
+        id: i,
+        left: `${Math.random() * 100}%`,
+        top: `${Math.random() * 100}%`,
+      }))
+    );
+  }, []);
 
   return (
     <>
@@ -66,9 +79,9 @@ export default function HUD({ scrollProgress, cursorPos, cursorHover, isDesktop 
       <div className="hidden md:block fixed bottom-40 right-20 w-6 h-6 pointer-events-none opacity-20 z-10" style={{ imageRendering: 'pixelated', background: 'repeating-linear-gradient(45deg, #a855f7 0, #a855f7 2px, transparent 2px, transparent 4px)' }} />
       <div className="hidden md:block fixed top-1/2 right-10 w-10 h-10 pointer-events-none opacity-25 z-10 border-2 border-orange-500" style={{ imageRendering: 'pixelated' }} />
 
-      {/* Particles */}
-      {Array.from({ length: 30 }).map((_, i) => (
-        <div key={i} className="particle fixed w-1 h-1 bg-orange-500/30 rounded-full pointer-events-none" style={{ left: `${Math.random() * 100}%`, top: `${Math.random() * 100}%` }} />
+      {/* Particles - client-side only, no SSR to avoid hydration mismatch */}
+      {particles.map((p) => (
+        <div key={p.id} className="particle fixed w-1 h-1 bg-orange-500/30 rounded-full pointer-events-none" style={{ left: p.left, top: p.top }} />
       ))}
     </>
   );
