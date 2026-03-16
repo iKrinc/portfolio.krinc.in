@@ -7,9 +7,9 @@ export default function Projects({ missions, isDesktop }) {
   if (isDesktop) {
     return (
       <div id="missions" className="projects-section-desktop relative h-screen">
-        <div className="projects-track flex items-center h-full" style={{ width: `${missions.length * 50}vw` }}>
+        <div className="projects-track flex items-center h-full" style={{ width: `${missions.length * 100}vw` }}>
           {missions.map((project, i) => (
-            <div key={i} className="min-w-screen h-screen flex items-center justify-center px-4 md:px-16">
+            <div key={i} className="w-screen shrink-0 h-screen flex items-center justify-center px-4 md:px-16">
               <motion.div
                 whileHover={{ scale: 1.02 }}
                 className="interactive max-w-4xl w-full border-2 border-orange-500/30 bg-black/80 backdrop-blur-xl p-6 md:p-12 hover:border-orange-500 transition-all group relative"
