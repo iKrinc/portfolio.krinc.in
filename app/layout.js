@@ -14,13 +14,13 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata = {
-  title: 'Srinivas Krishna | Frontend Engineer',
-  description: 'Frontend engineer by profession, versatile developer by passion. Building scalable UI systems, motion-enhanced interfaces, and open-source tools.',
-  keywords: ['Frontend Engineer', 'React Developer', 'Next.js', 'TypeScript', 'UI Engineer', 'Open Source', 'Portfolio', 'Srinivas Krishna'],
+  title: 'Srinivas Krishna | Frontend Developer & Client Liaison',
+  description: '3-year frontend developer (React · React Native · Flutter · Next.js) with a client-facing track record — resolving production issues live, coordinating API integrations, and building open-source tools.',
+  keywords: ['Frontend Developer', 'React Developer', 'Next.js', 'TypeScript', 'React Native', 'Flutter', 'Client Liaison', 'Open Source', 'Portfolio', 'Srinivas Krishna'],
   authors: [{ name: 'Srinivas Krishna S K' }],
   openGraph: {
-    title: 'Srinivas Krishna | Frontend Engineer',
-    description: 'Frontend engineer by profession, versatile developer by passion. Building scalable UI systems, motion-enhanced interfaces, and open-source tools.',
+    title: 'Srinivas Krishna | Frontend Developer & Client Liaison',
+    description: '3-year frontend developer with a client-facing track record in React, React Native, Flutter, and Next.js. Resolves production issues live and builds open-source tools.',
     url: 'https://portfolio.krinc.in',
     siteName: 'Srinivas Krishna Portfolio',
     locale: 'en_US',
@@ -28,8 +28,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Srinivas Krishna | Frontend Engineer',
-    description: 'Frontend engineer by profession, versatile developer by passion.',
+    title: 'Srinivas Krishna | Frontend Developer & Client Liaison',
+    description: '3-year frontend developer with a client-facing track record in React, React Native, Flutter, and Next.js.',
   },
   icons: {
     icon: '/favicon.svg',
